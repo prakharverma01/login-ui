@@ -7,10 +7,9 @@ interface IContactDetails {
   contactDetails: ContactDetails
 }
 
-class ContactUs extends React.Component<IContactDetails, {}> {
-  render() {
-    let fb = this.props.contactDetails.facebook
-    let lin = this.props.contactDetails.linkedIn
+const ContactUs = (props: IContactDetails) => {
+  let fb = props.contactDetails.facebook
+  let lin = props.contactDetails.linkedIn
     return (
       <div className="App">
         <Typography style={{position: "absolute", top: "101%", left: "2%", fontSize: 10}}>Let's get in touch ?</Typography>
@@ -22,7 +21,6 @@ class ContactUs extends React.Component<IContactDetails, {}> {
         </Typography>
       </div>
       );
-  }
 }
 
 export default ContactUs;
