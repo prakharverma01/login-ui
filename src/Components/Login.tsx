@@ -1,21 +1,17 @@
 import React from 'react';
 import { Typography, Button, Link, TextField, CardContent, Card } from '@material-ui/core';
 import ContactUs from './ContanctUs'
-import ContactDetails from '../Models/ContactDetails';
-import { Link as LinkRouter, withRouter} from 'react-router-dom';
-import WorkInProgress from './WorkInProgress';
+import { Link as LinkRouter} from 'react-router-dom';
 
-class Login extends React.Component {
+const facebook = "https://www.facebook.com/prakhar.verma.58"
+const linkedIn = "https://www.linkedin.com/in/prakhar-verma-49862b125/"
+let contactProp = {"contactDetails": {
+    "linkedIn":linkedIn, 
+    "facebook":facebook
+}}
+
+const Login = () => {
     
-    private facebook = "https://www.facebook.com/prakhar.verma.58"
-    private linkedIn = "https://www.linkedin.com/in/prakhar-verma-49862b125/"
-    
-    render() {
-        let contact: ContactDetails = {
-            "linkedIn":this.linkedIn, 
-            "facebook":this.facebook
-        }
-        let contactProp = {"contactDetails": contact}
         return(
             <div style={{
             position: 'absolute', left: '50%', top: '50%',transform: 'translate(-50%, -50%)'
@@ -57,7 +53,6 @@ class Login extends React.Component {
                 <ContactUs {...contactProp}/>
             </div>
         );
-    }
 }
 
 export default Login;

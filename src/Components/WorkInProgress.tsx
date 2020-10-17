@@ -1,17 +1,16 @@
 import React from 'react'
 import '../App.css'
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Card, CardMedia, CardContent, Typography, CardActions, Button } from '@material-ui/core';
 
-class WorkInProgress extends React.Component {
+function getLocation() {
+    let feature = decodeURIComponent(window.location.search)
+    let string = feature.split("=")[1]
+    return (string === "" || string == null) ? "feature" : feature.split("=")[1]
+}
 
-    getLocation() {
-        let feature = decodeURIComponent(window.location.search)
-        let string = feature.split("=")[1]
-        return (string === "" || string == null) ? "feature" : feature.split("=")[1]
-    }
+const WorkInProgress = () => {
 
-    render () {
         return (
             <div className="App">
                 <div style={{position: 'absolute', left: '50%', top: '50%',transform: 'translate(-50%, -50%)'}}>
@@ -25,7 +24,7 @@ class WorkInProgress extends React.Component {
                     Be Patient, We are on it !
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                    {this.getLocation()}  is currently under development, please visit again to check on this
+                    {getLocation()}  is currently under development, please visit again to check on this
                     </Typography>
                     </CardContent>
                     <CardActions>
@@ -37,7 +36,6 @@ class WorkInProgress extends React.Component {
                 </div>
             </div>
         );
-    }
 }
 
 export default WorkInProgress
